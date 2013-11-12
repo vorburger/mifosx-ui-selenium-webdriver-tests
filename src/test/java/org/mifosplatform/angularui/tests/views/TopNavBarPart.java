@@ -17,6 +17,6 @@ public class TopNavBarPart extends AbstractPage {
 
 	public ClientsPage goClients() {
 		clients.click();
-		return pageProvider.newPage(ClientsPage.class);
+		return pageProvider.initialize(ClientsPage.class);
 	}
 }

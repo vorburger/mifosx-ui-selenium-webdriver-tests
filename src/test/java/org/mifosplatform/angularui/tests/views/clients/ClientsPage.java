@@ -18,7 +18,7 @@ public class ClientsPage extends AbstractPage {
 
 	public CreateClientPage createClient() {
 		createClient.click();
-		return pageProvider.newPage(CreateClientPage.class);
+		return pageProvider.initialize(CreateClientPage.class);
 	}
 
 	public ClientsPage filter(String nameAcctNoStaffOffice) {
