@@ -1,9 +1,10 @@
 package org.mifosplatform.angularui.tests;
 
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
+
 import org.junit.Ignore;
 import org.junit.Test;
-import static org.junit.Assert.*;
-import static org.hamcrest.core.Is.*;
 import org.mifosplatform.angularui.tests.views.HomePage;
 import org.mifosplatform.angularui.tests.views.clients.ClientsPage;
 import org.mifosplatform.angularui.tests.views.clients.CreateClientPage;

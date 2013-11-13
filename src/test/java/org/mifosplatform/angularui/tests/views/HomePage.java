@@ -1,13 +1,11 @@
 package org.mifosplatform.angularui.tests.views;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import ch.vorburger.webdriver.utils.AbstractPage;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 
 public class HomePage extends AbstractPage {
 
