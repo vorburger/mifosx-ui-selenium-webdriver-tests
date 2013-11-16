@@ -15,6 +15,8 @@ import ch.vorburger.webdriver.utils.WebDriverTestFixture;
 @Ignore
 public class ClientsTest {
 
+	// TODO rewrite this as a Groovy Geb Spock test ;) like LoginSpecification.groovy
+	
 	WebDriverTestFixture fix;
 
 	@Test
