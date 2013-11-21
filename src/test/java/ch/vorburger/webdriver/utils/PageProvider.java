@@ -22,7 +22,11 @@ public class PageProvider {
 		this.wd = wd;
 	}
 
-	public <T> T newPage(Class<T> pageClass) {
+	public <T> T initialize(Class<T> pageClass) {
 		return PageFactory.initElements(wd, pageClass);
 	}
+
+    public <T> void initialize(T instance) {
+        PageFactory.initElements(wd, instance);
+    }
 }

@@ -10,6 +10,6 @@ public class WebDriverTestFixture {
 	WebDriver wd = new FirefoxDriver();
 	
 	// TODO later I'll build some infra. for getting the initial page, resetting back to it @AfterTest, etc.
-	public LoginPage loginPage = new PageProvider(wd).newPage(LoginPage.class);
+	public LoginPage loginPage = new PageProvider(wd).initialize(LoginPage.class);
 
 }
