@@ -17,8 +17,8 @@ public class LoginSpecification extends Specification {
 
     @Deployment(testable = false) // implies run as client mode
     def static WebArchive "create deployment"() {
-        return Deployments.angularFrontEnd();
-    } 
+        return Deployments.angularFrontEnd()
+    }
 	
     @ArquillianResource
     URL deployedFrontEndUrl
