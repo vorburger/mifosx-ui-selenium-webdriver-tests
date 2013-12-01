@@ -12,6 +12,7 @@
         <version.selenium>2.37.1</version.selenium>
         <version.junit>4.11</version.junit>
         <version.assertj-core>1.5.0</version.assertj-core>
+        <org.slf4j-version>1.7.5</org.slf4j-version>
 
         <!-- Arquillian -->
         <version.arquillian-core>1.1.0.Final</version.arquillian-core>
@@ -286,6 +287,18 @@
             <artifactId>groovy-all</artifactId>
             <scope>test</scope>
             <version>${version.groovy}</version>
+        </dependency>
+        
+        <dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${org.slf4j-version}</version>
+		</dependency>
+		
+		<dependency>
+	        <groupId>org.slf4j</groupId>
+	        <artifactId>slf4j-simple</artifactId>
+	        <version>${org.slf4j-version}</version>
         </dependency>
 
         <!-- to be removed -->

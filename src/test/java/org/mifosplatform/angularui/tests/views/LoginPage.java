@@ -1,5 +1,7 @@
 package org.mifosplatform.angularui.tests.views;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -41,5 +43,11 @@ public class LoginPage extends AbstractPage {
 		passwordField.sendKeys(password);
 		loginButton.click();
 	}
+	
+	public LoginPage shouldShowAuthenticationError() {
+        WebElement errorBox = waitForTextToChange("error", "Please try again, your credentials are not valid");
+        assertThat(errorBox.getText()).isEqualTo("Please try again, your credentials are not valid");
+        return this;
+    }
 
 }
