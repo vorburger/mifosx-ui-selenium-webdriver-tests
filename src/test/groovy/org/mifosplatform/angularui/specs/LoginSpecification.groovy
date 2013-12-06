@@ -11,6 +11,7 @@ import org.mifosplatform.angularui.tests.Deployments
 import org.mifosplatform.angularui.tests.views.LoginPage
 import org.openqa.selenium.WebDriver
 
+import spock.lang.Ignore;
 import spock.lang.Specification
 import spock.lang.Stepwise
 
@@ -38,7 +39,7 @@ public class LoginSpecification extends Specification {
 		    deployedFrontEndUrl = new URL(deployedFrontEndUrl.toString() + "app")
 	}
 
-	
+	@Ignore
 	def "Shouldn't be able to login with wrong credentials" () {
 		given:
 		    def loginPage = new LoginPage(driver, deployedFrontEndUrl.toString())
@@ -50,7 +51,7 @@ public class LoginSpecification extends Specification {
 		    loginPage.shouldShowAuthenticationError()		
 	}
 
-	    def "Should be able to login from the main page with proper credentials" () {
+	def "Should be able to login from the main page with proper credentials" () {
         given:
             def loginPage = new LoginPage(driver, deployedFrontEndUrl.toString())
 
