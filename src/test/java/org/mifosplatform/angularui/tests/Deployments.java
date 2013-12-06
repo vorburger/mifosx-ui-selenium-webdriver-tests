@@ -4,9 +4,6 @@ import java.io.IOException;
 
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.jboss.shrinkwrap.resolver.api.maven.Maven;
-import org.mifosplatform.angularui.tests.utils.ConfigurationInArchiveReplacer;
-
-import com.google.common.collect.ImmutableMap;
 
 public class Deployments {
 
@@ -20,11 +17,6 @@ public class Deployments {
         return webArchive;
     }
 
-    public static WebArchive angularFrontEndWithAlternativeConfiguration() throws IOException {
-        final WebArchive archive = angularFrontEnd();
-        new ConfigurationInArchiveReplacer(archive).replace(ImmutableMap.of("API_URL_OVERRIDE", "false"));
-        return archive;
-    }
-
+    // NOTE: If for tests anything in the WebArchive ever needs to be adapted, check out the ConfigurationInArchiveReplacer...
 
 }
