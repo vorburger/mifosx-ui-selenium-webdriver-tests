@@ -1,11 +1,12 @@
 package org.mifosplatform.angularui.specs
 
 import com.google.common.io.CharStreams
-import org.jboss.shrinkwrap.api.spec.WebArchive
-import org.mifosplatform.angularui.tests.ArchiveInspector
-import org.mifosplatform.angularui.tests.Deployments
-import spock.lang.Specification
 
+import org.jboss.shrinkwrap.api.spec.WebArchive
+import org.mifosplatform.angularui.tests.Deployments
+import org.mifosplatform.angularui.tests.utils.ArchiveInspector;
+
+import spock.lang.Specification
 import static org.assertj.core.api.Assertions.assertThat
 
 class DeploymentConfigurationReplacementSpecification extends Specification {

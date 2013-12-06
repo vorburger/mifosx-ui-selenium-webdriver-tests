@@ -1,4 +1,4 @@
-package org.mifosplatform.angularui.tests;
+package org.mifosplatform.angularui.tests.utils;
 
 import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ArchivePaths;

@@ -1,8 +1,8 @@
 package org.mifosplatform.angularui.specs
 
-import org.mifosplatform.angularui.tests.ConfigurationValuesReplacer
-import spock.lang.Specification
+import org.mifosplatform.angularui.tests.utils.ConfigurationValuesReplacer;
 
+import spock.lang.Specification
 import static org.assertj.core.api.Assertions.assertThat
 
 class ConfigurationValuesReplacerSpecification extends Specification {

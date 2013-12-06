@@ -1,4 +1,4 @@
-package org.mifosplatform.angularui.tests;
+package org.mifosplatform.angularui.tests.utils;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

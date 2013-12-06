@@ -1,15 +1,15 @@
-package org.mifosplatform.angularui.tests;
-
-import com.google.common.io.CharStreams;
-import org.jboss.shrinkwrap.api.Archive;
-import org.jboss.shrinkwrap.api.ArchivePaths;
-import org.jboss.shrinkwrap.api.asset.StringAsset;
-import org.jboss.shrinkwrap.api.spec.WebArchive;
+package org.mifosplatform.angularui.tests.utils;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Map;
+
+import org.jboss.shrinkwrap.api.Archive;
+import org.jboss.shrinkwrap.api.ArchivePaths;
+import org.jboss.shrinkwrap.api.asset.StringAsset;
+
+import com.google.common.io.CharStreams;
 
 public class ConfigurationInArchiveReplacer {
 
