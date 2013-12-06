@@ -8,13 +8,13 @@ in a Jetty on localhost using http://arquillian.org, and then runs web tests aga
 
 You will have to first install the community-app WAR via 'gradle install' (in community-app).
 
-Because we're programmatically changing community-app/app/scripts/modules/configurations.js
-in org.mifosplatform.angularui.tests.Deployments.angularFrontEnd(), the UI will, by default, be
-configured on the fly to connect to the Mifos X platform REST API running in the cloud.
+By default, this project currently just runs community-app WAR "as is",
+which is configured in community-app/app/scripts/initialTasks.js to connect to the Mifos X platfor
+REST API running in the cloud (e.g. https://demo.openmf.org/mifosng-provider/api/v1/clients/?tenantIdentifier=default&pretty=true).
 
 If you want to test local changes made to the back-end running on localhost and not yet deployed to the cloud test instance,
-please contribute a patch via pull request ;-) so that Deployments.angularFrontEnd() can be configured to make
-the UI use different API URLs (specified e.g. via a -D Java system property set in a Launcher?).
+the tests can be configured to make the UI use different API URLs via a -Dbase.url=... Java system property set
+that is passed on into the AngularJS App via the ?baseApiUrl= URL query parameter.
 
 To use in Eclipse, you'll need http://groovy.codehaus.org/Eclipse+Plugin.
 
