@@ -18,4 +18,6 @@ that is passed on into the AngularJS App via the ?baseApiUrl= URL query paramete
 
 To use in Eclipse, you'll need http://groovy.codehaus.org/Eclipse+Plugin.
 
+This project uses Code Formatting conventions as per https://github.com/jboss/ide-config.
+
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/vorburger/mifosx-ui-selenium-webdriver-tests/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
