@@ -17,3 +17,5 @@ please contribute a patch via pull request ;-) so that Deployments.angularFrontE
 the UI use different API URLs (specified e.g. via a -D Java system property set in a Launcher?).
 
 To use in Eclipse, you'll need http://groovy.codehaus.org/Eclipse+Plugin.
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/vorburger/mifosx-ui-selenium-webdriver-tests/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
