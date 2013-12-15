@@ -13,7 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public abstract class AbstractPage {
 
-    private static final int TIME_OUT_AFTER_10_S = 10;
+    private static final int TIME_OUT_AFTER_30_S = 30;
     private static final int CHECK_EVERY_100_MS = 100;
 
     protected final WebDriver wd;
@@ -42,7 +42,7 @@ public abstract class AbstractPage {
             }
         };
 
-        final WebDriverWait wait = new WebDriverWait(wd, TIME_OUT_AFTER_10_S, CHECK_EVERY_100_MS);
+        final WebDriverWait wait = new WebDriverWait(wd, TIME_OUT_AFTER_30_S, CHECK_EVERY_100_MS);
         wait.until(elementAppears);
     }
 
@@ -54,7 +54,7 @@ public abstract class AbstractPage {
             }
         };
 
-        final WebDriverWait wait = new WebDriverWait(wd, TIME_OUT_AFTER_10_S, CHECK_EVERY_100_MS);
+        final WebDriverWait wait = new WebDriverWait(wd, TIME_OUT_AFTER_30_S, CHECK_EVERY_100_MS);
         wait.until(elementChangesText);
         return wd.findElement(By.id(id));
     }

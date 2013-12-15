@@ -14,7 +14,7 @@ public class HomePage extends AbstractPage {
 	public HomePage(WebDriver wd) {
 		super(wd);
         pageProvider.initialize(this);
-//		navBar = pageProvider.initialize(TopNavBarPart.class);
+		navBar = new TopNavBarPart(wd);
 	}
 
     public HomePage shouldHaveUserMenuFor(String username) {
