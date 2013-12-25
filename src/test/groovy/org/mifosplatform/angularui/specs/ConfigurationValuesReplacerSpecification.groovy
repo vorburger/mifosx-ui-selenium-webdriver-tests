@@ -1,10 +1,13 @@
 package org.mifosplatform.angularui.specs
 
-import org.mifosplatform.angularui.tests.utils.ConfigurationValuesReplacer;
-
-import spock.lang.Specification
 import static org.assertj.core.api.Assertions.assertThat
 
+import org.mifosplatform.angularui.tests.utils.ConfigurationValuesReplacer
+
+import spock.lang.Ignore
+import spock.lang.Specification
+
+@Ignore
 class ConfigurationValuesReplacerSpecification extends Specification {
 
     def "should replace api url definition"() {

@@ -2,6 +2,7 @@ package org.mifosplatform.angularui.specs
 
 import org.jboss.arquillian.container.test.api.Deployment
 import org.jboss.arquillian.drone.api.annotation.Drone
+import org.jboss.arquillian.graphene.page.Page
 import org.jboss.arquillian.spock.ArquillianSputnik
 import org.jboss.shrinkwrap.api.spec.WebArchive
 import org.junit.runner.RunWith
@@ -13,6 +14,7 @@ import org.openqa.selenium.WebDriver
 import spock.lang.Ignore
 import spock.lang.Stepwise
 
+@Ignore
 @Stepwise
 @RunWith(ArquillianSputnik)
 public class LoginSpecification extends AbstractSpecification {
@@ -27,28 +29,34 @@ public class LoginSpecification extends AbstractSpecification {
     @Drone
     WebDriver driver
     
+    @Page
+    private LoginPage loginPage
+    
+    @Page
+    private HomePage homePage
+    
     def setup() {
         url = fixUrl()
     }
-
-	@Ignore
-	def "Shouldn't be able to login with wrong credentials" () {
-		given:
-		    def loginPage = new LoginPage(driver, url.toString())
-		
-		when:
-		    loginPage = loginPage.loginAsExpectingError "badid", "badpwd"
-			
-		then:
-		    loginPage.shouldShowAuthenticationError()		
-	}
+    
+    def "Shouldn't be able to login with wrong credentials" () {
+            given:
+                loginPage.init(driver, url.toString())
+            
+            when:
+                loginPage.loginAsExpectingError "badid", "badpwd"
+                    
+            then:
+                loginPage.shouldShowAuthenticationError()
+    }
 
 	def "Should be able to login from the main page with proper credentials" () {
         given:
-            def loginPage = new LoginPage(driver, url.toString())
+            loginPage.init(driver, url.toString())
 
         when:
-            def homePage = loginPage.loginAs "mifos", "password"
+            loginPage.loginAs "mifos", "password"
+            homePage.init(driver)
 
         then:
             homePage.shouldHaveUserMenuFor "mifos"
