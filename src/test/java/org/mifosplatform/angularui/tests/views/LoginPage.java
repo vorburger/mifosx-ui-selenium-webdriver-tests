@@ -8,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 
 import ch.vorburger.webdriver.utils.AbstractPage;
 
+
 public class LoginPage extends AbstractPage {
 
     @FindBy(id =  "uid")
@@ -19,23 +20,19 @@ public class LoginPage extends AbstractPage {
     @FindBy(id = "login-button")
     private WebElement loginButton;
 	
-	public LoginPage(WebDriver wd, String location) {
-        super(wd);
-        wd.get(location);
-        waitForElementToAppear("uid");
-        pageProvider.initialize(this);
+	public void init(WebDriver driver, String location) {
+	    driver.get(location);
+	    setWebDriver(driver);
 	}
 
-    public HomePage loginAs(String username, String password) {
+    public void loginAs(String username, String password) {
 		login(username, password);
 		// TODO how-to ensure that we actually indeed are on the HomePage, and no longer the LoginPage?
-		return new HomePage(wd);
 	}
 
-	public LoginPage loginAsExpectingError(String uid, String password) {
+	public void loginAsExpectingError(String uid, String password) {
 		login(uid, password);
 		// TODO how-to ensure that we're still on the LoginPage?
-		return this;
 	}
 
 	private void login(String userName, String password) {
@@ -44,10 +41,9 @@ public class LoginPage extends AbstractPage {
 		loginButton.click();
 	}
 	
-	public LoginPage shouldShowAuthenticationError() {
+	public void shouldShowAuthenticationError() {
         WebElement errorBox = waitForTextToChange("error", "Please try again, your credentials are not valid");
         assertThat(errorBox.getText()).isEqualTo("Please try again, your credentials are not valid");
-        return this;
     }
 
 }

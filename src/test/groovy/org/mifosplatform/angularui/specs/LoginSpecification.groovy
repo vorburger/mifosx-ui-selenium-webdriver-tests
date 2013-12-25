@@ -2,61 +2,61 @@ package org.mifosplatform.angularui.specs
 
 import org.jboss.arquillian.container.test.api.Deployment
 import org.jboss.arquillian.drone.api.annotation.Drone
+import org.jboss.arquillian.graphene.page.Page
 import org.jboss.arquillian.spock.ArquillianSputnik
-import org.jboss.arquillian.test.api.ArquillianResource
 import org.jboss.shrinkwrap.api.spec.WebArchive
-import org.junit.Before
 import org.junit.runner.RunWith
 import org.mifosplatform.angularui.tests.Deployments
+import org.mifosplatform.angularui.tests.views.HomePage
 import org.mifosplatform.angularui.tests.views.LoginPage
 import org.openqa.selenium.WebDriver
 
-import spock.lang.Ignore;
-import spock.lang.Specification
+import spock.lang.Ignore
 import spock.lang.Stepwise
 
+@Ignore
 @Stepwise
 @RunWith(ArquillianSputnik)
-public class LoginSpecification extends Specification {
+public class LoginSpecification extends AbstractSpecification {
 
     @Deployment(testable = false) // implies run as client mode
     def static WebArchive "create deployment"() {
         return Deployments.angularFrontEnd()
     } 
-	
-    @ArquillianResource
-    URL deployedFrontEndUrl
   
+    URL url 
+    
     @Drone
     WebDriver driver
-	
-	@Before
-	public void fixUrl() {
-		String baseApiUrl = System.getProperty("base.url");
-		if(baseApiUrl != null && baseApiUrl != "")
-		    deployedFrontEndUrl = new URL(deployedFrontEndUrl.toString() + "app?baseApiUrl=" + baseApiUrl)
-		else
-		    deployedFrontEndUrl = new URL(deployedFrontEndUrl.toString() + "app")
-	}
-
-	@Ignore
-	def "Shouldn't be able to login with wrong credentials" () {
-		given:
-		    def loginPage = new LoginPage(driver, deployedFrontEndUrl.toString())
-		
-		when:
-		    loginPage = loginPage.loginAsExpectingError "badid", "badpwd"
-			
-		then:
-		    loginPage.shouldShowAuthenticationError()		
-	}
+    
+    @Page
+    private LoginPage loginPage
+    
+    @Page
+    private HomePage homePage
+    
+    def setup() {
+        url = fixUrl()
+    }
+    
+    def "Shouldn't be able to login with wrong credentials" () {
+            given:
+                loginPage.init(driver, url.toString())
+            
+            when:
+                loginPage.loginAsExpectingError "badid", "badpwd"
+                    
+            then:
+                loginPage.shouldShowAuthenticationError()
+    }
 
 	def "Should be able to login from the main page with proper credentials" () {
         given:
-            def loginPage = new LoginPage(driver, deployedFrontEndUrl.toString())
+            loginPage.init(driver, url.toString())
 
         when:
-            def homePage = loginPage.loginAs "mifos", "password"
+            loginPage.loginAs "mifos", "password"
+            homePage.init(driver)
 
         then:
             homePage.shouldHaveUserMenuFor "mifos"
